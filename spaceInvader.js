@@ -1,8 +1,8 @@
 "use strict";
 
-drawRectancle();
+drawSpaceInvador();
 
-function drawRectancle() {
+function drawSpaceInvador() {
 
    let canvas = document.querySelector("canvas");
    canvas.width = window.innerWidth;
