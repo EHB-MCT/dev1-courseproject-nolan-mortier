@@ -1,15 +1,12 @@
 "use strict";
+let canvas = document.querySelector("canvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let context = canvas.getContext("2d");
 
 drawSpaceInvador();
 
 function drawSpaceInvador() {
-
-   let canvas = document.querySelector("canvas");
-   canvas.width = window.innerWidth;
-   canvas.height = window.innerHeight;
-   let context = canvas.getContext("2d");
-   
-   
    context.fillStyle = "black";
    context.beginPath();
    context.rect(25,10, 300, 300);
