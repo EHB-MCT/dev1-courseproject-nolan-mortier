@@ -5,9 +5,6 @@
 
 let context;
 setup();
-let x = 100;
-let y = 100;
-
 
 function setup() {
 let canvas = document.querySelector("canvas");
@@ -22,22 +19,22 @@ drawSquares();
     let green = Math.random()* 255;
     let blue = Math.random()* 255;
 context.fillStyle = "rgb(" + red + "," + green + "," + blue +")";
-context.fillRect(915,130,30,30);
-context.fillRect(945,100,30,30);
-context.fillRect(975,130,30,30);
-context.fillRect(885,160,30,30);
-context.fillRect(1005,160,30,30);
-context.fillRect(855,190,30,30);
-context.fillRect(1035,190,30,30);
-context.fillRect(825,220,30,30);
-context.fillRect(1065,220,30,30);
-context.fillRect(855,250,30,30);
-context.fillRect(885,280,30,30);
-context.fillRect(915,310,30,30);
-context.fillRect(945,280,30,30);
-context.fillRect(975,310,30,30);
-context.fillRect(1005,280,30,30);
-context.fillRect(1035,250,30,30);
-context.fillRect(850,110,30,30);
-context.fillRect(1035,110,30,30);
+context.fillRect(595,130,30,30);
+context.fillRect(625,100,30,30);
+context.fillRect(655,130,30,30);
+context.fillRect(685,160,30,30);
+context.fillRect(565,160,30,30);
+context.fillRect(715,190,30,30);
+context.fillRect(535,190,30,30);
+context.fillRect(745,220,30,30);
+context.fillRect(505,220,30,30);
+context.fillRect(715,250,30,30);
+context.fillRect(565,280,30,30);
+context.fillRect(685,280,30,30);
+context.fillRect(625,280,30,30);
+context.fillRect(720,110,30,30);
+context.fillRect(595,310,30,30);
+context.fillRect(535,250,30,30);
+context.fillRect(655,310,30,30);
+context.fillRect(535,110,30,30);
    }
