@@ -2,39 +2,54 @@
 
 /** @type {CanvasRenderingContext2D} */
 
-
+let xPositions = [];
+let yPositions = [];
 let context;
 setup();
+update();
 
-function setup() {
-let canvas = document.querySelector("canvas");
-   canvas.width = window.innerWidth;
-   canvas.height = window.innerHeight;
- context = canvas.getContext("2d");
-drawSquares();
+drawSquares(500,100);
+
+function setup(){
+    for (let i = 0; i<100; i++){
+        xPositions[i]= Utils.randomNumber (0,width);
+        yPositions[i]= Utils.randomNumber (0,height);
+    }
 }
 
-   function drawSquares() {
+function update(){
+    context.fillStyle = "black";
+    context.fillRect (0,0, width, height);
+    for ( let i = 0; i < xPositions.length; i++){
+    drawSquares(xPositions[i], yPositions[i], 180);
+    xPositions[i] += Utils.randomNumber (-2 , 2);
+    yPositions[i] += Utils.randomNumber (-2 , 2);
+}
+requestAnimationFrame(update);
+}
+function drawSquares(x,y) {
     let red = Math.random()* 255;
     let green = Math.random()* 255;
     let blue = Math.random()* 255;
 context.fillStyle = "rgb(" + red + "," + green + "," + blue +")";
-context.fillRect(595,130,30,30);
-context.fillRect(625,100,30,30);
-context.fillRect(655,130,30,30);
-context.fillRect(685,160,30,30);
-context.fillRect(565,160,30,30);
-context.fillRect(715,190,30,30);
-context.fillRect(535,190,30,30);
-context.fillRect(745,220,30,30);
-context.fillRect(505,220,30,30);
-context.fillRect(715,250,30,30);
-context.fillRect(565,280,30,30);
-context.fillRect(685,280,30,30);
-context.fillRect(625,280,30,30);
-context.fillRect(720,110,30,30);
-context.fillRect(595,310,30,30);
-context.fillRect(535,250,30,30);
-context.fillRect(655,310,30,30);
-context.fillRect(535,110,30,30);
+context.fillRect(x+95,y+30,30,30);
+context.fillRect(x+125,y,30,30);
+context.fillRect(x+155,y+30,30,30);
+context.fillRect(x+185,y+60,30,30);
+context.fillRect(x+65,y+60,30,30);
+context.fillRect(x+215,y+90,30,30);
+context.fillRect(x+35,y+90,30,30);
+context.fillRect(x+245,y+120,30,30);
+context.fillRect(x+5,y+120,30,30);
+context.fillRect(x+215,y+150,30,30);
+context.fillRect(x+65,y+180,30,30);
+context.fillRect(x+185,y+180,30,30);
+context.fillRect(x+125,y+180,30,30);
+context.fillRect(x+220,y +10,30,30);
+context.fillRect(x+95,y+210,30,30);
+context.fillRect(x+35,y+150,30,30);
+context.fillRect(x+155,y+210,30,30);
+context.fillRect(x+35,y+10,30,30);
    }
+
+
