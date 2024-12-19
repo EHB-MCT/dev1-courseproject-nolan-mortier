@@ -10,11 +10,13 @@ let y = [];
 let colors = []; 
 let sizes = [];
 
-let mouseY = 0;
-let mouseX = 0;
+const mouse = {
+    x: 0,
+    y: 0,
+    radius: 30, 
+};
 
 let total = 500;
-let hoverDistance = 30; 
 
 document.onmousemove = onMouseMove;
 
@@ -29,7 +31,6 @@ function setup() {
         x[i] = Utils.randomNumber(1, width - 2);
         y[i] = Utils.randomNumber(1, height - 2);
 
-        
         colors[i] = Utils.hsl(
             Utils.randomNumber(0, 360),
             Utils.randomNumber(50, 80),
@@ -44,10 +45,10 @@ function update() {
     context.fillRect(0, 0, width, height);
 
     for (let i = 0; i < total; i++) {
-        let distance = Utils.calculateDistance(x[i], y[i], mouseX, mouseY);
+        let distance = Utils.calculateDistance(x[i], y[i], mouse.x, mouse.y);
 
-       
-        if (distance < hoverDistance) {
+        if (distance < mouse.radius) {
+            
             colors[i] = Utils.hsl(
                 Utils.randomNumber(0, 360),
                 Utils.randomNumber(50, 80),
@@ -58,7 +59,7 @@ function update() {
             sizes[i] = Math.max(25, sizes[i] - 1); 
         }
 
-        // Stel de kleur en grootte in
+        
         context.fillStyle = colors[i];
         context.fillRect(
             x[i] - sizes[i] / 2,
@@ -68,6 +69,12 @@ function update() {
         );
     }
 
+   
+    context.fillStyle = "red";
+    context.beginPath();
+    context.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI * 2);
+    context.fill();
+
     requestAnimationFrame(update);
 }
 
@@ -76,6 +83,6 @@ function update() {
  * @param {MouseEvent} e 
  */
 function onMouseMove(e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+    mouse.x = e.pageX;
+    mouse.y = e.pageY;
 }
