@@ -1,0 +1,16 @@
+// This code was partially generated with ChatGPT (OpenAI) on 19/12/2024
+image = new Image();
+    image.src = "../../images/invader_65 1.png"; 
+    image.onload = () => {
+        console.log("Afbeelding geladen!");
+    };// tot hier
+
+
+
+// This code was partially generated with ChatGPT (OpenAI) on 19/12/2024
+    if (image.complete) {
+        const imgWidth = 100; 
+        const imgHeight = 100;
+        context.drawImage(image, width - imgWidth, height - imgHeight, imgWidth, imgHeight); // tot hier
+    }
+
